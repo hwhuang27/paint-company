@@ -8,34 +8,49 @@ export interface IPaint {
     black: number;
     white: number;
     purple: number;
+    blueStatus: "available" | "low" | "none";
+    greyStatus: "available" | "low" | "none";
+    blackStatus: "available" | "low" | "none";
+    whiteStatus: "available" | "low" | "none";
+    purpleStatus: "available" | "low" | "none";
 }
 
 // 2. Create a Schema corresponding to the document interface.
 const paintSchema = new Schema<IPaint>({
-    blue: {
-        type: Number,
+    blue: {type: Number, required: true, default: 0, },
+    grey: {type: Number, required: true, default: 0, },
+    black: {type: Number, required: true, default: 0, },
+    white: {type: Number, required: true, default: 0, },
+    purple: {type: Number, required: true, default: 0, },
+    blueStatus: {
+        type: String,
+        enum: ["available", "low", "none"],
         required: true,
-        default: 0,
+        default: "none",
     },
-    grey: {
-        type: Number,
+    greyStatus: {
+        type: String,
+        enum: ["available", "low", "none"],
         required: true,
-        default: 0,
+        default: "none",
     },
-    black: {
-        type: Number,
+    blackStatus: {
+        type: String,
+        enum: ["available", "low", "none"],
         required: true,
-        default: 0,
+        default: "none",
     },
-    white: {
-        type: Number,
+    whiteStatus: {
+        type: String,
+        enum: ["available", "low", "none"],
         required: true,
-        default: 0,
+        default: "none",
     },
-    purple: {
-        type: Number,
+    purpleStatus: {
+        type: String,
+        enum: ["available", "low", "none"],
         required: true,
-        default: 0,
+        default: "none",
     },
 });
 

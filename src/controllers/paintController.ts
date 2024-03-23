@@ -25,11 +25,16 @@ export const update_paints = [
 
         // create new paint instance with new stock
         const updatedPaint = new Paint({
-            blue: req.body.blueQuantity,
-            grey: req.body.greyQuantity,
-            black: req.body.blackQuantity,
-            white: req.body.whiteQuantity,
-            purple: req.body.purpleQuantity,  
+            blue: req.body.blue,
+            grey: req.body.grey,
+            black: req.body.black,
+            white: req.body.white,
+            purple: req.body.purple,
+            blueStatus: req.body.blueStatus,
+            greyStatus: req.body.greyStatus,
+            blackStatus: req.body.blackStatus,
+            whiteStatus: req.body.whiteStatus,
+            purpleStatus: req.body.purpleStatus,
         });
         await updatedPaint.save();
     
@@ -47,13 +52,7 @@ export const init_paints = [
 
         // create Paint instance if none exists
         if(!count){
-            const paints = new Paint({
-                blue: 0,
-                grey: 0,
-                black: 0,
-                white: 0,
-                purple: 0,
-            });
+            const paints = new Paint();
             await paints.save();
         }
 
