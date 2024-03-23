@@ -32,6 +32,7 @@ export const login = [
 
         res.json({
             success: true,
+            role: user.role,
             accessToken,
         });
     }),
