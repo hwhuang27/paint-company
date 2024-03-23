@@ -12,9 +12,12 @@ router.get('/user', passport.authenticate('jwt', { session: false }), userContro
 router.get('/users', passport.authenticate('jwt', { session: false }), userController.fetch_users);
 
 // GET all paints
-router.get('/paint', passport.authenticate('jwt', { session: false }), paintController.fetch_paints);
+router.get('/paints', passport.authenticate('jwt', { session: false }), paintController.fetch_paints);
 
 // PUT update all paints
-router.put('/paint', passport.authenticate('jwt', { session: false }), paintController.update_paints);
+router.put('/paints', passport.authenticate('jwt', { session: false }), paintController.update_paints);
+
+// POST init paints (admin)
+router.post('/paints', passport.authenticate('jwt', { session: false }), paintController.init_paints);
 
 export default router;

@@ -3,21 +3,39 @@ import { Schema, model, Types } from 'mongoose';
 // 1. Create an interface representing a document in MongoDB.
 export interface IPaint {
     _id: Types.ObjectId;
-    color: string;
-    quantity: number;
+    blue: number;
+    grey: number;
+    black: number;
+    white: number;
+    purple: number;
 }
 
 // 2. Create a Schema corresponding to the document interface.
 const paintSchema = new Schema<IPaint>({
-    color: {
-        type: String,
-        required: true,
-        maxLength: 50,
-        unique: true,
-    },
-    quantity: {
+    blue: {
         type: Number,
         required: true,
+        default: 0,
+    },
+    grey: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    black: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    white: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    purple: {
+        type: Number,
+        required: true,
+        default: 0,
     },
 });
 
