@@ -11,13 +11,13 @@ router.get('/user', passport.authenticate('jwt', { session: false }), userContro
 // GET all users (admin)
 router.get('/users', passport.authenticate('jwt', { session: false }), userController.fetch_users);
 
+// POST init paints (admin)
+router.post('/paints', passport.authenticate('jwt', { session: false }), paintController.init_paints);
+
 // GET all paints
 router.get('/paints', passport.authenticate('jwt', { session: false }), paintController.fetch_paints);
 
 // PUT update all paints
 router.put('/paints', passport.authenticate('jwt', { session: false }), paintController.update_paints);
-
-// POST init paints (admin)
-router.post('/paints', passport.authenticate('jwt', { session: false }), paintController.init_paints);
 
 export default router;

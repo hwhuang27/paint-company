@@ -82,10 +82,9 @@ export const register = [
         .withMessage("Last name must be specified."),
 
     asyncHandler(async (req, res, _next) => {
-            const errors = validationResult(req);
-
-            // check for validation errors
-            if(!errors.isEmpty()){
+        // check for validation errors
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
                 res.status(400).json({
                     message: `Error when registering`,
                     email: req.body.email,

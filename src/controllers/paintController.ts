@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { body, validationResult } from 'express-validator';
 import Paint from '../models/Paint';
 import asyncHandler from 'express-async-handler';
 
@@ -37,6 +36,7 @@ export const update_paints = [
         res.status(200).json({
             success: true,
             message: 'Paint quantities updated.',
+            updatedPaint,
         });
     })
 ];
@@ -47,14 +47,14 @@ export const init_paints = [
 
         // create Paint instance if none exists
         if(!count){
-            const paint = new Paint({
+            const paints = new Paint({
                 blue: 0,
                 grey: 0,
                 black: 0,
                 white: 0,
                 purple: 0,
             });
-            await paint.save();
+            await paints.save();
         }
 
         res.status(200).json({

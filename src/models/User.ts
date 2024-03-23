@@ -41,10 +41,6 @@ const userSchema = new Schema<IUser>({
     },
 });
 
-userSchema.virtual("url").get(function () {
-    return `user/${this._id}`;
-});
-
 // 3. Create and export MongoDB model.
 const User = model<IUser>('User', userSchema);
 
