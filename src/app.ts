@@ -11,13 +11,12 @@ import passport from 'passport';
 import './auth/localStrategy';
 import './auth/jwtStrategy';
 
-const app = express();
-const httpServer = createServer(app);
-
-const port = process.env.PORT || 3000;
-
 import authRouter from './routes/auth';
 import apiRouter from './routes/api';
+
+const app = express();
+const httpServer = createServer(app);
+const port = process.env.PORT || 3000;
 
 // Database
 import mongoose from 'mongoose';
@@ -54,7 +53,7 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     // Log error to console
     console.log(`Error: ${err.message}`);
     console.error(err.stack);
-    
+
     // Send error response
     res.status(err.status || 400).json({
         success: false,
